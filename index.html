@@ -2,18 +2,35 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <title>Electron JS Boilerplate (with jQuery and Bootstrap)</title>
+
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+
+    <!-- JavaScript dependencies for jQuery, popper.js, and Bootstrap. -->
+    <script>let $ = jQuery = require('jquery');</script>
+    <script>require('popper.js');</script>
+    <script>require('bootstrap');</script>
+
+    <!-- CSS dependencies for Bootstrap (pointing to default `npm install` directory). -->
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Local JavaScript and CSS. -->
+    <script>require("./renderer.js");</script>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
+
   <body>
-    <h1>Hello World!</h1>
+    <h1>Hello World, now with jQuery and Bootstrap!</h1>
+
     We are using Node.js <span id="node-version"></span>,
     Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    Electron <span id="electron-version"></span>,
+    jQuery <script>document.write($.fn.jquery)</script>,
+    and Bootstrap <script>document.write($.fn.tooltip.Constructor.VERSION)</script>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <div id='test'></div>
   </body>
 </html>
